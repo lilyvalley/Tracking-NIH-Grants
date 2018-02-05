@@ -59,7 +59,7 @@ The main steps involved in data wrangling are listed below and all details can b
   5)	Start with training a stochastic gradient descent (SGD) classifier.
   6)	Evaluate the model by using K fold cross-validation.
   7)	Compare and select performance measure such as accuracy (not very informative), confusion matrix/ precision and recall/ f1 score. Plot ROC curve to evaluate model.
-  8)	Since the performance of the SGD not optimal, I trained another model using random forest. 
+  8)	Since the performance of the SGD is not optimal, I trained another model using random forest. 
 The ROC curve shows much better performance compared to SGD. See below:
   ![ROC comapre](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/images/ROC_multiple.png)
   9)	Fine tune the random forest classifier by grid search to find best hyperparameter and best model.
