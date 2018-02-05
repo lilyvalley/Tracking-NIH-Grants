@@ -71,4 +71,4 @@ The ROC curve shows much better performance compared to SGD. See below:
 
 ## 6.	Conclusions and discussions.
 
-This is just a piece of ice burger of studying grants and publications. In the matrix used to train classifier, only a few columns are included. Feature engineering will be needed to dicover more features. As indicated in my analysis, NIH institutes which reflect research subfields, are important in predicting grant renew. Research topic can also be extracted from analyzing text data. With the help of NLP and Deep learning, more features can be extracted to make better predictions.  
+This is just an piece of iceberg of studying grants and publications. In the matrix used to train classifier, only a few columns are included. Feature engineering will be needed to dicover more features. As indicated in my analysis, NIH institutes which reflect research subfields, are important in predicting grant renew. Research topic can also be extracted from analyzing text data. With the help of NLP and Deep learning, more features can be extracted to make better predictions.  
