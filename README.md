@@ -26,16 +26,16 @@ Based on the time difference between grant approval and publication, we can esti
   
   * Interestingly, a bubble plot of total cost, average cost and publication numbers separates NIH institutes into distinct clusters. Institute RR (research resources, NCRR) has high award and high publication amount, thus the average cost of publishing a paper is low. Institute such as NR (Nursing research, NINR) have high award but does not publish much. General medicine institute is the most cost effective. While cancer research institute award more and publish more.
   
-  ![Total cost vs average cost](https://github.com/lilyvalley/Tracking_NIH_Grant/blob/master/figure/scatter_merge.png)
+  ![Total cost vs average cost](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/images/scatter_merge.png)
 
 ## 4.	More deep insights – Are researchers honest about their grants?
 It is import for the funding agent to follow up their awards to make sure the grants are used for the same purpose as researchers announced. This can be achieved by comparing the abstract of grants and publications. 
 
 Term frequency-inverse document frequency (tf-idf) is a common method of assessing the importance of a word in a document corpus. It weights the frequency of a given term in an individual document with the inverse frequency of that term in the entire corpus. We first use tf-idf to transform both abstract then compare the cosine similarity of the two.
 
-  ![Cosine similarity](https://github.com/lilyvalley/Tracking_NIH_Grant/blob/master/figure/cosine_plot.png)
+  ![Cosine similarity](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/images/cosine_plot.png)
   
-In the scatter plot above, 50 abstracts are compared and ranked based on their cosine similarity score. The cosine scores range from 0.6 to 0.1. The higher the score, the more similar the abstracts between grants and publications.  Indeed, the shorter abstracts tend to have lower cosine scores. Some publications are linked to multiple grants. For example, the paper (PMID 23681158) cited five grants. When it compares to a grant for training purpose, the cosine score is very low (0.15). This is due to the research details are not described in the training grant. However, when it compares to a research grant, the cosine score is much higher (0.47). This indicate cosine score can accurately reflect abstract similarity. The contant of the abstracts is shown in the ipython notebook [here](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/ipython_notebook/More%20deeper%20insights.ipynb).
+In the scatter plot above, 50 abstracts are compared and ranked based on their cosine similarity score. The cosine scores range from 0.6 to 0.1. The higher the score, the more similar the abstracts between grants and publications.  Indeed, the shorter abstracts tend to have lower cosine scores. Some publications are linked to multiple grants. For example, the paper (PMID 23681158) cited five grants. When it compares to a grant for training purpose, the cosine score is very low (0.15). This is due to the research details are not described in the training grant. However, when it compares to a research grant, the cosine score is much higher (0.47). This indicate cosine score can accurately reflect abstract similarity. The content of the abstracts is shown in the ipython notebook [here](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/ipython_notebook/More%20deeper%20insights.ipynb).
 
 ## 5.	Make predictions – Whether a grant will be renewed?
 The current mechanism of NIH award is based on peer review by experts in the fields, however this process is very expensive and time-consuming. A research even reported the NIH funding allocation seems no better than lottery. If we can make accurate prediction on whether a grant should be funded, we can partially solve the problem. However, NIH does not publish unfunded grants, thus we reframe the question, try to predict whether a grant will be renewed.
@@ -59,7 +59,7 @@ The main steps involved in data wrangling are listed below and all details can b
   5)	Start with training a stochastic gradient descent (SGD) classifier.
   6)	Evaluate the model by using K fold cross-validation.
   7)	Compare and select performance measure such as accuracy (not very informative), confusion matrix/ precision and recall/ f1 score. Plot ROC curve to evaluate model.
-  8)	Since the performance of the SGD not optimal, I trained another model using random forest. 
+  8)	Since the performance of the SGD is not optimal, I trained another model using random forest. 
 The ROC curve shows much better performance compared to SGD. See below:
   ![ROC comapre](https://github.com/lilyvalley/Tracking-NIH-Grants/blob/master/images/ROC_multiple.png)
   9)	Fine tune the random forest classifier by grid search to find best hyperparameter and best model.
@@ -71,4 +71,4 @@ The ROC curve shows much better performance compared to SGD. See below:
 
 ## 6.	Conclusions and discussions.
 
-This is just a piece of ice burger of studying grants and publications. In the matrix used to train classifier, only a few columns are included. Feature engineering will be needed to dicover more features. As indicated in my analysis, NIH institutes which reflect research subfields, are important in predicting grant renew. Research topic can also be extracted from analyzing text data. With the help of NLP and Deep learning, more features can be extracted to make better predictions.  
+This is just an piece of iceberg of studying grants and publications. In the matrix used to train classifier, only a few columns are included. Feature engineering will be needed to dicover more features. As indicated in my analysis, NIH institutes which reflect research subfields, are important in predicting grant renew. Research topic can also be extracted from analyzing text data. With the help of NLP and Deep learning, more features can be extracted to make better predictions.  
